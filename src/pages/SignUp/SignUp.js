@@ -1,10 +1,12 @@
 import React, { useContext } from "react";
 import { AuthContext } from "../../context/AuthProvider";
+import useTitle from "../../hook/useTitle";
 import SignWithGoogle from "../SignWithGoogle/SignWithGoogle";
 
 const SignUp = () => {
     const {createUser, updateUserProfile}= useContext(AuthContext)
     // console.log(updateProfile)
+    useTitle('Sign Up')
     const handleSubmit = e =>{
         e.preventDefault()
         const form = e.target
