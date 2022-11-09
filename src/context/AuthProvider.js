@@ -28,6 +28,7 @@ const AuthProvider = ({ children }) => {
 
 
   const updateUserProfile = (profile)=>{
+    // console.log(profile)
     
     return updateProfile(auth.currentUser, profile)
   }

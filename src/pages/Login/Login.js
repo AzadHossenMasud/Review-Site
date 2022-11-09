@@ -1,11 +1,16 @@
 import React, { useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../context/AuthProvider";
 import useTitle from "../../hook/useTitle";
 import SignWithGoogle from "../SignWithGoogle/SignWithGoogle";
 
 const Login = () => {
   const {loginUser}= useContext(AuthContext)
+
+  const navigate = useNavigate();
+  const location = useLocation();
+  const from = location.state?.from?.pathname || "/";
+  console.log(from);
   // console.log(loginUser);
   useTitle('Login')
 
@@ -20,11 +25,14 @@ const Login = () => {
       // Signed in 
       const user = userCredential.user;
       console.log(user)
+      navigate(from, { replace: true });
+
       // ...
     })
     .catch((error) => {
       const errorCode = error.code;
       const errorMessage = error.message;
+      alert('Wrong Information')
     });
     // console.log(password, email);
   }

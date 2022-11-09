@@ -3,41 +3,52 @@ import { Link } from "react-router-dom";
 import { AuthContext } from "../../../context/AuthProvider";
 
 const Header = () => {
-  const {user, logoutUser} = useContext(AuthContext)
-  
-  const handleLogout = ()=>{
+  const { user, logoutUser } = useContext(AuthContext);
+
+  const handleLogout = () => {
     logoutUser()
-    .then(() => {
-      // Sign-out successful.
-    }).catch((error) => {
-      // An error happened.
-    });
-  }
+      .then(() => {
+        // Sign-out successful.
+      })
+      .catch((error) => {
+        // An error happened.
+      });
+  };
   // console.log(user);
   const navItems = (
     <>
       <li>
-       
-        <Link to='/'>Home</Link>
+        <Link to="/">Home</Link>
       </li>
       <li>
-       
-        <Link to='/services'>Services</Link>
+        <Link to="/services">Services</Link>
       </li>
-      <>{
-        user? <li>
-       
-       <button onClick={handleLogout} className="btn btn-active btn-ghost">Logout</button>
-
-      </li>: 
-      <li>
-        <button className="btn btn-active btn-ghost"><Link to='/login'>Login</Link></button>
-
-      </li>
-
-      }
+      <>
+        {user ? (
+          <>
+            <li>
+              <Link to="/myreviews">My Reviews</Link>
+            </li>
+            <li>
+              <Link to="/addservice">Add Service</Link>
+            </li>
+            <li>
+              <button
+                onClick={handleLogout}
+                className="btn btn-active btn-ghost"
+              >
+                Logout
+              </button>
+            </li>
+          </>
+        ) : (
+          <li>
+            <button className="btn btn-active btn-ghost">
+              <Link to="/login">Login</Link>
+            </button>
+          </li>
+        )}
       </>
-      
     </>
   );
 
@@ -68,8 +79,7 @@ const Header = () => {
             {navItems}
           </ul>
         </div>
-        <Link to='/' className="btn btn-ghost normal-case text-xl">
-        
+        <Link to="/" className="btn btn-ghost normal-case text-xl">
           <img
             src="https://i.ibb.co/gt1x1xn/logo.png"
             className=" h-12 w-14 rounded-lg"
