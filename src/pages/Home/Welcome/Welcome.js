@@ -2,9 +2,9 @@ import React from "react";
 
 const Welcome = () => {
   return (
-    <div className=" text-center">
-      <h1 className=" text-center text-gray-700 text-xl">
-        Welocme to Skill Developm Training Center(SDCT)
+    <div className=" text-center bg-slate-400  py-10">
+      <h1 className=" text-center text-base-100 text-xl">
+        Welocme to Skill Developm Training Center(SDTC)
       </h1>
       <h1 className=" my-10  text-4xl lg:text-5xl font-semibold">
         Unlock The Door Of Freedom
