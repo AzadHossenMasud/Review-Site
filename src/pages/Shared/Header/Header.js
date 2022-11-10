@@ -35,13 +35,24 @@ const Header = () => {
             <li>
               <Link to="/addservice">Add Service</Link>
             </li>
-            <li>
+            
+            <li className="dropdown">
+              <label tabIndex={0} className="  ">
+                <img className=" h-12 w-12 rounded-full" src={user?.photoURL} alt="" />
+              </label>
+              <ul
+                tabIndex={0}
+                className="dropdown-content menu shadow bg-slate-600 rounded-box mr-2"
+              >
+               <li>
               <button
                 onClick={handleLogout}
                 className="btn btn-active btn-ghost"
               >
                 Logout
               </button>
+            </li>
+              </ul>
             </li>
           </>
         ) : (

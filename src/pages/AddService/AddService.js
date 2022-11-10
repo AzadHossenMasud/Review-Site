@@ -16,7 +16,7 @@ const AddService = () => {
 
     const doc = { name, image, price, duration, description };
     console.log(doc);
-    fetch("http://localhost:5000/addservice", {
+    fetch("https://review-site-server.vercel.app/addservice", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

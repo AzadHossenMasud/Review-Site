@@ -20,7 +20,7 @@ const GiveReview = () => {
     const reviewData = { email, review, name, displayName, photoURL, courseId: _id };
     // console.log(reviewData)
 
-    fetch("http://localhost:5000/review", {
+    fetch("https://review-site-server.vercel.app/review", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

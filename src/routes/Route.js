@@ -32,35 +32,31 @@ export const router = createBrowserRouter([
           path: 'updatereview/:id',
           element:<PrivateRoute><UpdateReview></UpdateReview></PrivateRoute>,
           loader: async ({params}) => {
-            return fetch(`http://localhost:5000/updatereview/${params.id}`);
+            return fetch(`https://review-site-server.vercel.app/updatereview/${params.id}`);
           },
         },
         {
           path: 'givereview/:id',
           element: <PrivateRoute><GiveReview></GiveReview></PrivateRoute>,
           loader: async ({params}) => {
-            return fetch(`http://localhost:5000/givereview/${params.id}`);
+            return fetch(`https://review-site-server.vercel.app/givereview/${params.id}`);
           },
         },
         {
           path: 'services',
           element: <AllServices></AllServices>,
-          // loader: async () => {
-          //   return fetch('http://localhost:5000/allservices');
-          // },
+          
         },
         {
           path: 'blog',
           element: <Blog></Blog>,
-          // loader: async () => {
-          //   return fetch('http://localhost:5000/allservices');
-          // },
+          
         },
         {
           path: 'services/:id',
           element: <ServiceDetails></ServiceDetails>,
           loader: async ({params}) => {
-            return fetch(`http://localhost:5000/services/${params.id}`);
+            return fetch(`https://review-site-server.vercel.app/services/${params.id}`);
           },
         }
       ]

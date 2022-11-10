@@ -13,7 +13,7 @@ const UpdateReview = () => {
     const updateText = e.target.reviewText.value;
     const reviewData = { updateText };
     // console.log(review);
-    fetch(`http://localhost:5000/updatereview/${review._id}`, {
+    fetch(`https://review-site-server.vercel.app/updatereview/${review._id}`, {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",

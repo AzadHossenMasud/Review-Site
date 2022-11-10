@@ -7,6 +7,7 @@ import {
   useNavigate,
 } from "react-router-dom";
 import { AuthContext } from "../../context/AuthProvider";
+import PrivateRoute from "../../routes/PrivateRoute";
 import Review from "../Review/Review";
 
 const ServiceDetails = () => {
@@ -21,7 +22,7 @@ const ServiceDetails = () => {
   const { description, duration, image, name, price, _id } = service;
 
   useEffect(()=>{
-    fetch(`http://localhost:5000/reviews?courseId=${_id}`)
+    fetch(`https://review-site-server.vercel.app/reviews?courseId=${_id}`)
     .then(res => res.json())
     .then(data => setReviews(data))
 
@@ -55,7 +56,7 @@ const ServiceDetails = () => {
 
         {user ? (
           <button className="btn btn-link">
-            <Link to={`/givereview/${_id}`}>Write a Review</Link>
+            <PrivateRoute><Link to={`/givereview/${_id}`}>Write a Review</Link></PrivateRoute>
           </button>
         ) : (
           <button className="btn btn-link">
