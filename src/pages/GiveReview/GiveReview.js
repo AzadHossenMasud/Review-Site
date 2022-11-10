@@ -1,6 +1,8 @@
 import React, { useContext } from "react";
 import { useLoaderData, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../context/AuthProvider";
+import toast, { Toaster } from 'react-hot-toast';
+
 
 const GiveReview = () => {
   const { user } = useContext(AuthContext);
@@ -27,9 +29,9 @@ const GiveReview = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log("Success:", data);
+        // console.log("Success:", data);
         if (data.acknowledged) {
-          alert("Thank your for your review!");
+          toast("Thank your for your review!");
           navigate("/services");
           e.target.reset();
         }
@@ -40,6 +42,7 @@ const GiveReview = () => {
   };
   return (
     <div className=" text-center w-3/4 mx-auto">
+      <Toaster />
       <form onSubmit={handleSubmit}>
         <div className="form-control ">
           <label className="label text-xl font-semibold mb-3">
