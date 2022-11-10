@@ -2,6 +2,7 @@ import { PencilSquareIcon, TrashIcon } from "@heroicons/react/24/solid";
 import React, { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../context/AuthProvider";
 import toast, { Toaster } from 'react-hot-toast';
+import { Link } from "react-router-dom";
 
 
 const MyReviews = () => {
@@ -46,7 +47,7 @@ const MyReviews = () => {
                 <h2 className="card-title text-purple-500">{review.name}</h2>
                 <p className="font-semibold italic">"{review.review}"</p>
                 <div className="card-actions justify-end">
-                  <div className="badge badge-outline-dark">Edit</div>
+                  <div className="badge badge-outline-dark"><Link to={`/updatereview/${review._id}`}>Update</Link></div>
                   <div
                     onClick={() => handleDeleteReview(review._id)}
                     className="badge badge-outline-dark"
