@@ -7,10 +7,12 @@ import {
   useNavigate,
 } from "react-router-dom";
 import { AuthContext } from "../../context/AuthProvider";
+import useTitle from "../../hook/useTitle";
 import PrivateRoute from "../../routes/PrivateRoute";
 import Review from "../Review/Review";
 
 const ServiceDetails = () => {
+  useTitle('Service Details')
   const { user } = useContext(AuthContext);
   const [reviews, setReviews]= useState([])
 

@@ -1,3 +1,17 @@
+# Live Site
+https://service-review-f012e.firebaseapp.com/
+
+## feature and functional operation
+* Login email and passwor or google using google firebase
+* tailwind css   as framework
+* daisyUi used for component library
+* responsive and user friendly
+* update and delete function
+
+
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

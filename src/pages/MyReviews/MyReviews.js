@@ -3,9 +3,11 @@ import React, { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../context/AuthProvider";
 import toast, { Toaster } from 'react-hot-toast';
 import { Link } from "react-router-dom";
+import useTitle from "../../hook/useTitle";
 
 
 const MyReviews = () => {
+  useTitle('My Reviews')
   const { user } = useContext(AuthContext);
   const [reviews, setReviews] = useState([]);
 
