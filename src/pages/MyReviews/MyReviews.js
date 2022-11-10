@@ -12,41 +12,37 @@ const MyReviews = () => {
       .then((res) => res.json())
       .then((data) => setReviews(data));
   }, []);
-
+console.log(reviews.length)
   return (
-    <div className="text-center text-3xl lg:text-5xl my-10 overflow-x-auto">
-      <h2>My Reviews</h2>
-      
-        <table className="table w-full">
-          <thead>
-            <tr>
-              <th>Service Name</th>
-              <th>Review</th>
-              <th>Update</th>
-              <th>Delete</th>
-            </tr>
-          </thead>
-          <tbody>
-            {reviews.map((review) => (
-              <tr key={review._id}>
-                <th>{review.name}</th>
-                <td>{review.review}</td>
-                <td>
-                  <PencilSquareIcon></PencilSquareIcon>
-                </td>
-                <td>
-                  <TrashIcon></TrashIcon>
-                </td>
-              </tr>
-            ))}
-            <tr>
-              <th>1</th>
-              <td>Cy Ganderton</td>
-              <td>Quality Control Specialist</td>
-              <td>Blue</td>
-            </tr>
-          </tbody>
-        </table>
+    <div className="py-5 bg-slate-400">
+      <h2 className="font-semibold text-3xl lg:text-5xl text-center">My Reviews</h2>
+      {
+        reviews.length && <div className="mt-5 md:w-11/12 lg:w-9/12 mx-auto  grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+        {
+          reviews.map(review =><div className="card w-full bg-base-100 shadow-xl">
+        
+          <div className="card-body">
+            <h2 className="card-title text-purple-500">
+              {review.name}
+            </h2>
+            <p className="font-semibold italic">"{review.review}"</p>
+            <div className="card-actions justify-end">
+              <div className="badge badge-outline-dark">Edit</div>
+              <div className="badge badge-outline-dark">Delete</div>
+            </div>
+          </div>
+        </div>)
+        }
+       </div>
+      }
+
+      {
+        reviews.length || <div className="my-20 flex justify-center items-center">
+          <h3 className=" text-2xl font-semibold">No Review Added Yet</h3>
+          </div>
+      }
+     
+
     </div>
   );
 };

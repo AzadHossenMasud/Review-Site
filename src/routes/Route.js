@@ -23,7 +23,7 @@ export const router = createBrowserRouter([
         },
         {
           path: 'givereview/:id',
-          element: <GiveReview></GiveReview>,
+          element: <PrivateRoute><GiveReview></GiveReview></PrivateRoute>,
           loader: async ({params}) => {
             return fetch(`http://localhost:5000/givereview/${params.id}`);
           },
